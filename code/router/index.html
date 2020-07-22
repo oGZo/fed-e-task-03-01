@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/">home</router-link>
+        <router-link to="/about">about</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="https://festatic.estudy.cn/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        const home = {
+            render(h) {
+                return h('div', 'home')
+            },
+        }
+        const about = {
+            render(h) {
+                return h('div', 'about')
+            },
+        }
+        Vue.use(Router);
+        var router = new Router({
+            routes: [
+                {
+                    path: '/',
+                    component: home
+                },
+                {
+                    path: '/about',
+                    component: about
+                },
+            ]
+        })
+
+        new Vue({
+            el: '#app',
+            router,
+        })
+    </script>
+</body>
+</html>
